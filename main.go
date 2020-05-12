@@ -10,6 +10,7 @@ import (
 	"strconv"
 
 	"github.com/byplayer/download_podcast_go/models"
+	"github.com/hnakamur/commango/os/osutil"
 )
 
 func main() {
@@ -41,6 +42,9 @@ func main() {
 		i, _ := strconv.Atoi(result[0][2])
 		newFName := fmt.Sprintf("%s%03d%s", result[0][1], i, result[0][3])
 		fmt.Println(newFName)
+		fpath := filepath.Join("./", "download", newFName)
+		fmt.Println(fpath)
+		fmt.Println(osutil.Exists(fpath))
 
 		//Store Data Here(Establish Prior Connection With DB)
 		//Store.Insert(data)
